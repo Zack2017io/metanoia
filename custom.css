@@ -1,0 +1,149 @@
+.carousel-container {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f0fb; /* Light purple background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 1100px; /* Adjust for three cards and spacing */
+    margin: 20px;
+    overflow: hidden; /* Important for hiding overflowing cards */
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 15px); /* Adjust width for spacing */
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    margin-right: 20px; /* Spacing between cards */
+}
+
+.card:last-child {
+    margin-right: 0; /* Remove margin from the last card */
+}
+
+.card-image {
+    height: auto; /* Adjust based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.card.purple .card-image {
+    background-color: #9c27b0; /* Similar purple */
+}
+
+.card.heart .card-image {
+    background-color: #f44336; /* Red for heart */
+    position: relative;
+    padding: 30px 20px;
+}
+
+.card.heart .card-image p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.card.heart .heart-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    -webkit-mask: url('heart.svg') center/contain no-repeat;
+    mask: url('heart.svg') center/contain no-repeat;
+}
+
+.card.dark .card-image {
+    background-color: #333; /* Dark background */
+    padding: 20px;
+}
+
+.card.dark .card-image h2 {
+    margin: 10px 0;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.card.dark .card-image .bottom-text {
+    font-size: 0.85em;
+    margin-top: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #555;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+}
+
+.prev-button {
+    left: 10px; /* Adjust position */
+}
+
+.next-button {
+    right: 10px; /* Adjust position */
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px; /* Position below cards */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.indicator {
+    background-color: #bbb;
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #555;
+    opacity: 1;
+}

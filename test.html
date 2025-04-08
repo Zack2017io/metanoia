@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Metanoia Carousel</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f0fb;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .carousel-container {
+            display: flex;
+            flex-direction: column; /* Stack cards and controls vertically */
+            width: 90%;
+            max-width: 1100px;
+            position: relative;
+            padding-bottom: 40px; /* Space for indicators */
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            align-items: flex-start; /* Align items to the top */
+            overflow: hidden; /* Hide overflow for sliding effect */
+        }
+
+        .card3 {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 40px); /* Adjust width for spacing */
+            flex-shrink: 0;
+            margin: 0 20px; /* Add equal spacing */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card3:first-child {
+            margin-left: 0;
+        }
+
+        .card3:last-child {
+            margin-right: 0;
+        }
+
+        .card-image {
+            height: 200px; /* Set a fixed height for all images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden; /* Clip any overflowing image content */
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crop the image to fill the container */
+        }
+
+        .card.purple .card-image {
+            background-color: #9c27b0;
+        }
+
+        .card.heart .card-image {
+            background-color: #f44336;
+            position: relative;
+            padding: 0; /* Remove padding to let image fill */
+        }
+
+        .card.dark .card-image {
+            background-color: #333;
+            padding: 0; /* Remove padding to let image fill */
+        }
+
+        .card-body3 {
+            padding: 20px;
+        }
+
+        .card-body3 h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border-radius: 50%;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            color: black;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-control:hover {
+            opacity: 1;
+        }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
+        }
+
+        .carousel-control svg {
+            fill: black;
+            width: 16px;
+            height: 16px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .indicator {
+            background-color: #bbb;
+            border: none;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: #555;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container" style="background-color: #f8f0fb;">
+        <button class="carousel-control prev-button">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+        </button>
+        <div class="carousel-wrapper">
+            <div class="card3 purple">
+                <div class="card-image">
+                    <img src="https://vision-metanioa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FFrame_134vision_meta1.f1e0d2b1.png&w=750&q=75" alt="Metanoia Image">
+                </div>
+                <div class="card-body3">
+                    <h3>The cornerstone of Vision Metanoia is 'Metanoia,' a fundamental shift in the way we think.</h3>
+                    <p>Are you ready to undertake your journey of Metanoia and join us in this transformation adventure?</p>
+                </div>
+            </div>
+            <div class="card3 heart">
+                <div class="card-image">
+                    <img src="https://vision-metanioa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FFrame_slider_2-min.e5461b36.png&w=750&q=75" alt="Heart Image">
+                </div>
+                <div class="card-body3">
+                    <h3>At Vision Metanoia we believes that transformation is possible when all our hearts beat as one.</h3>
+                    <p>Our mission transcends borders, cultures, and biases. It's about nurturing a global community committed to creating a world where thriving isn't a privilege, but a universal reality.</p>
+                </div>
+            </div>
+            <div class="card3 dark">
+                <div class="card-image">
+                    <img src="https://vision-metanioa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FFrame_135-min.a8b3c3e3.png&w=750&q=75" alt="Vision Metanoia Image">
+                </div>
+                <div class="card-body3">
+                    <h3>The time for change is now. Follow us and join the Metanoia Movement.</h3>
+                    <p>Prosperity shouldn't be a privilege for the fortunate few those born into generational wealth, situated in resource-rich regions, graced with opportunities, or shielded from socio-economic, cultural, and political hardships.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control next-button">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+        </button>
+
+        <div class="carousel-indicators">
+            <button class="indicator active" data-index="0"></button>
+            <button class="indicator" data-index="1"></button>
+            <button class="indicator" data-index="2"></button>
+        </div>
+    </div>
+
+    <script>
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        const cards = document.querySelectorAll('.card3');
+        const prevButton = document.querySelector('.prev-button');
+        const nextButton = document.querySelector('.next-button');
+        const indicators = document.querySelectorAll('.indicator');
+        let cardWidth;
+        let currentIndex = 0;
+        let autoSlideInterval;
+        const autoSlideDelay = 3000;
+
+        function updateCardWidth() {
+            if (cards.length > 0) {
+                cardWidth = cards[0].offsetWidth + 40; // Including margin
+            }
+        }
+
+        function updateCarousel() {
+            carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            updateIndicators();
+
+            // Adjust button positions
+            prevButton.style.left = `${10}px`;
+            nextButton.style.right = `${10}px`;
+        }
+
+        function updateIndicators() {
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            if (index < 0) {
+                currentIndex = cards.length - 1;
+            } else if (index >= cards.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            updateCarousel();
+            resetAutoSlide();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        function goToIndicatorSlide(event) {
+            const index = parseInt(event.target.dataset.index);
+            goToSlide(index);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', goToIndicatorSlide);
+        });
+
+        window.addEventListener('resize', () => {
+            updateCardWidth();
+            updateCarousel();
+            resetAutoSlide();
+        });
+
+        // Initial setup
+        updateCardWidth();
+        updateCarousel();
+        startAutoSlide();
+    </script>
+
+</body>
+</html>
