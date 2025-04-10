@@ -1,18 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownToggle = document.getElementById('ourInitiativesDropdown');
-    const dropdownMenu = document.getElementById('dropdownMenu');
+    const dropdownMenu = dropdownToggle.nextElementSibling;
 
-    dropdownToggle.addEventListener('mouseover', function() {
-        dropdownMenu.classList.add('show');
+    dropdownToggle.addEventListener('mouseenter', function(event) {
+      dropdownMenu.classList.add('show');
+      dropdownToggle.setAttribute('aria-expanded', 'true');
     });
 
-    dropdownToggle.addEventListener('mouseout', function(event) {
-        if (!event.relatedTarget || !event.relatedTarget.closest('.dropdown-menu')) {
-            dropdownMenu.classList.remove('show');
+    dropdownToggle.addEventListener('mouseleave', function(event) {
+      setTimeout(() => {
+        if (!dropdownMenu.matches(':hover')) {
+          dropdownMenu.classList.remove('show');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
         }
+      }, 100); // Add a slight delay to allow mouse to enter the dropdown menu
     });
 
-    dropdownMenu.addEventListener('mouseleave', function() {
-        dropdownMenu.classList.remove('show');
+    dropdownMenu.addEventListener('mouseleave', function(event) {
+      dropdownMenu.classList.remove('show');
+      dropdownToggle.setAttribute('aria-expanded', 'false');
     });
-});
+  });
