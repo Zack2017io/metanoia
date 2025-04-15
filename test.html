@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Metanoia Carousel</title>
+    <style>
+        body {
+          font-family: 'Open Sans', sans-serif;
+          background-color: #f8f0fb;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+      
+        .carousel-container {
+          display: flex;
+          flex-direction: column; /* Stack cards and controls vertically */
+          width: 90%;
+          max-width: 1100px;
+          position: relative;
+          padding-bottom: 40px; /* Space for indicators */
+        }
+      
+        .carousel-wrapper {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+          align-items: stretch; /* Make cards the same height */
+          overflow: hidden; /* Hide overflow for sliding effect */
+        }
+      
+        .card3 {
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          width: calc(33.333% - 20px); /* Adjust width for spacing */
+          flex-shrink: 0;
+          margin: 0 10px; /* Add equal spacing */
+          display: flex;
+          flex-direction: column;
+        }
+      
+        .card3:first-child {
+          margin-left: 0;
+        }
+      
+        .card3:last-child {
+          margin-right: 0;
+        }
+      
+        .card-image {
+          height: 200px; /* Fixed height for all images */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          text-align: center;
+          overflow: hidden; /* Clip any overflowing image content */
+        }
+      
+        .card-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Crop the image to fill the container */
+        }
+      
+        .card.purple .card-image {
+          background-color: #9c27b0;
+        }
+      
+        .card.heart .card-image {
+          background-color: #f44336;
+          padding: 0; /* Remove padding to let image fill */
+        }
+      
+        .card.dark .card-image {
+          background-color: #333;
+          padding: 0; /* Remove padding to let image fill */
+        }
+      
+        .card-body3 {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+      
+        .card-body3 h3 {
+          font-size: 1.1em;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+      
+        .carousel-control {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: white;
+          border-radius: 50%;
+          border: none;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.2em;
+          color: black;
+          cursor: pointer;
+          z-index: 10;
+          opacity: 0.7;
+          transition: opacity 0.3s ease;
+        }
+      
+        .carousel-control:hover {
+          opacity: 1;
+        }
+      
+        .prev-button {
+          left: 0; /* Touch the left card */
+          transform: translateX(-50%) translateY(-50%);
+        }
+      
+        .next-button {
+          right: 0; /* Touch the right card */
+          transform: translateX(50%) translateY(-50%);
+        }
+      
+        .carousel-control svg {
+          fill: black;
+          width: 16px;
+          height: 16px;
+        }
+      
+        .carousel-indicators {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          padding: 10px 0;
+        }
+      
+        .indicator {
+          background-color: #bbb;
+          border: none;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          margin: 0 5px;
+          cursor: pointer;
+          opacity: 0.6;
+          transition: opacity 0.3s ease;
+        }
+      
+        .indicator.active {
+          background-color: #555;
+          opacity: 1;
+        }
+      </style>
+      </head>
+      <body>
+      
+        <div class="carousel-container" style="background-color: #f8f0fb;">
+          <button class="carousel-control prev-button">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+          </button>
+          <div class="carousel-wrapper">
+            <div class="card3 purple">
+              <div class="card-image">
+                <img src="https://vision-metanioa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FFrame_134vision_meta1.f1e0d2b1.png&w=750&q=75" alt="Metanoia Image" style="object-position: top;">
+              </div>
+              <div class="card-body3">
+                <h3>The cornerstone of Vision Metanoia is 'Metanoia,' a fundamental shift in the way we think.</h3>
+                <p>Are you ready to undertake your journey of Metanoia and join us in this transformation adventure?</p>
+              </div>
+            </div>
+            <div class="card3 heart">
+              <div class="card-image">
+                <img src="https://vision-metanioa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FFrame_slider_2-min.e5461b36.png&w=750&q=75" alt="Heart Image" style="object-position: center;">
+              </div>
+              <div class="card-body3">
+                <h3>At Vision Metanoia we believes that transformation is possible when all our hearts beat as one.</h3>
+                <p>Our mission transcends borders, cultures, and biases. It's about nurturing a global community committed to creating a world where thriving isn't a privilege, but a universal reality.</p>
+              </div>
+            </div>
+            <div class="card3 dark">
+              <div class="card-image">
+                <img src="https://vision-metanioa.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FFrame_135-min.a8b3c3e3.png&w=750&q=75" alt="Vision Metanoia Image" style="object-position: top;">
+              </div>
+              <div class="card-body3">
+                <h3>The time for change is now. Follow us and join the Metanoia Movement.</h3>
+                <p>Prosperity shouldn't be a privilege for the fortunate few those born into generational wealth, situated in resource-rich regions, graced with opportunities, or shielded from socio-economic, cultural, and political hardships.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control next-button">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </button>
+      
+          <div class="carousel-indicators">
+            <button class="indicator active" data-index="0"></button>
+            <button class="indicator" data-index="1"></button>
+            <button class="indicator" data-index="2"></button>
+          </div>
+        </div>
+      
+        <script>
+const carouselWrapper = document.querySelector('.carousel-wrapper');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+const indicators = document.querySelectorAll('.indicator');
+let cards = Array.from(document.querySelectorAll('.card3'));
+let currentIndex = 0;
+let cardWidth;
+let autoSlideInterval;
+const autoSlideDelay = 3000;
+let isTransitioning = false;
+const visibleCards = 3;
+
+function updateCardWidth() {
+    if (cards.length > 0) {
+        const card = cards[0];
+        const margin = parseInt(getComputedStyle(card).marginLeft) + parseInt(getComputedStyle(card).marginRight);
+        cardWidth = card.offsetWidth + margin;
+        console.log("Card Width:", cardWidth); // Debugging
+    }
+}
+
+function updateCarousel(animated = true) {
+    if (isTransitioning) return;
+    if (animated) {
+        carouselWrapper.style.transition = `transform 0.5s ease-in-out`;
+    } else {
+        carouselWrapper.style.transition = 'none';
+    }
+    carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    updateIndicators();
+    console.log("Carousel Transform:", carouselWrapper.style.transform); // Debugging
+}
+
+function updateIndicators() {
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex % cards.length);
+    });
+}
+
+function nextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex++;
+    updateCarousel();
+
+    carouselWrapper.addEventListener('transitionend', () => {
+        if (currentIndex >= cards.length) {
+            carouselWrapper.style.transition = 'none';
+            currentIndex = 0;
+            carouselWrapper.appendChild(cards[0]);
+            cards.push(cards.shift());
+            updateCarousel(false);
+        }
+        isTransitioning = false;
+    }, { once: true });
+
+    resetAutoSlide();
+}
+
+function prevSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex--;
+    updateCarousel();
+
+    carouselWrapper.addEventListener('transitionend', () => {
+        if (currentIndex < 0) {
+            carouselWrapper.style.transition = 'none';
+            currentIndex = cards.length - 1;
+            carouselWrapper.insertBefore(cards[cards.length - 1], cards[0]);
+            cards.unshift(cards.pop());
+            updateCarousel(false);
+            carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+        isTransitioning = false;
+    }, { once: true });
+
+    resetAutoSlide();
+}
+
+function goToSlide(index) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    const targetIndex = index % cards.length;
+    const difference = targetIndex - (currentIndex % cards.length);
+
+    if (difference > 0) {
+        currentIndex += difference;
+    } else if (difference < 0) {
+        currentIndex += difference;
+    }
+    updateCarousel();
+
+    carouselWrapper.addEventListener('transitionend', () => {
+        const newTargetIndex = index % cards.length;
+        const currentActualIndex = cards.findIndex(card => card === carouselWrapper.children[0]);
+        const diff = newTargetIndex - currentActualIndex;
+
+        if (diff > 0) {
+            for (let i = 0; i < diff; i++) {
+                const firstCard = carouselWrapper.removeChild(cards[0]);
+                carouselWrapper.appendChild(firstCard);
+                cards.push(cards.shift());
+            }
+        } else if (diff < 0) {
+            for (let i = 0; i < Math.abs(diff); i++) {
+                const lastCard = carouselWrapper.removeChild(cards[cards.length - 1]);
+                carouselWrapper.insertBefore(lastCard, carouselWrapper.firstChild);
+                cards.unshift(cards.pop());
+                currentIndex++;
+            }
+        }
+        updateCarousel(false);
+        isTransitioning = false;
+    }, { once: true });
+    resetAutoSlide();
+}
+
+function goToIndicatorSlide(event) {
+    const index = parseInt(event.target.dataset.index);
+    goToSlide(index);
+}
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+function initializeCarousel() {
+    updateCardWidth();
+    carouselWrapper.style.width = `${cards.length * cardWidth}px`;
+    carouselWrapper.style.width = 'fit-content';
+    updateCarousel(false);
+}
+
+prevButton.addEventListener('click', prevSlide);
+nextButton.addEventListener('click', nextSlide);
+indicators.forEach(indicator => {
+    indicator.addEventListener('click', goToIndicatorSlide);
+});
+
+window.addEventListener('resize', () => {
+    updateCardWidth();
+    carouselWrapper.style.width = `${cards.length * cardWidth}px`;
+    carouselWrapper.style.width = 'fit-content';
+    updateCarousel(false);
+    resetAutoSlide();
+});
+
+// Initial setup
+initializeCarousel();
+startAutoSlide();
+</script>
+</body>
+</html>

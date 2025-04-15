@@ -1,0 +1,474 @@
+.navbar {
+    top: 0;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    max-height: 70px;
+}
+
+.mt-5 {
+    margin-top: 5rem !important;
+}
+
+.nav-item {
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.navbar-nav .nav-link,
+.nav-link.dropdown-toggle {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.nav-link.dropdown-toggle:hover,
+.nav-link.dropdown-toggle:focus {
+    color: #5d2da4;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after,
+.nav-link.dropdown-toggle:hover::after,
+.nav-link.dropdown-toggle:focus::after,
+.navbar-nav .active::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* single line, reduced thickness*/
+    background-color: #5d2da4;
+    width: 100%; /* line width equal to item width*/
+}
+
+.navbar-nav .active {
+    color: #5d2da4;
+}
+
+.custom-dropdown-nav {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(93, 45, 164, 0.1);
+    color: #5d2da4;
+}
+
+.dropdown-item:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* single line, reduced thickness*/
+    background-color: #5d2da4;
+    width: 100%; /* line width equal to item width*/
+}
+
+.custom-heading {
+    font-size: 100px !important; 
+    font-weight: lighter; 
+    color: #5d2da4;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: -5; 
+
+}
+
+.custom-heading2 {
+    font-size: 40px; 
+    font-weight: lighter; 
+    color: #5d2da4;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    line-height: -8; 
+
+}
+
+.main-content {
+    max-width: 1200px; /* Adjust for your desired total content width */
+    width: 80%; /* Adjust for overall width and margins */
+    margin: 20px auto; /* Centers the content with top margin */
+    display: flex; /* Enable flexbox for the gap */
+    flex-direction: column; /* Stack the cards vertically */
+    gap: 20px; /* Adjust the gap between the cards */
+}
+
+.full-width-bg .card  {
+    width: 100%; /* Span full viewport width */
+    padding-top: 20px; /* Add spacing equivalent to the original gap */
+    padding-bottom: 20px;
+    background-color: transparent !important; /* Override inline styles */
+    margin-bottom: 0;
+}
+
+.card {
+    margin: auto;
+    border: none !important; /* Remove card borders */
+    max-width: 100%; 
+    padding: 25px;
+}
+
+.card .card-title {
+    font-size: 2.5rem; /* Adjusted font size */
+    color: #5d2da4; /* Example color */
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.card-title1 {
+    color: #5d2da4;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-top: 0.5rem;
+}
+
+.card-text {
+    font-size: 1.35rem; 
+    font-weight: normal;
+    line-height: 1.75rem; 
+    color: #000000; 
+    margin-top: 0.5rem;
+}
+
+.point {
+    font-weight: bold;
+    color: #000000; 
+}
+
+.card .col-md-4 img {
+    /* width: 100%; 
+    height: auto; */
+    object-fit: cover;
+}
+
+.text-dark-grey {
+    color: #5a5a5a;
+}
+
+.custom-button {
+    display: inline-block;
+    margin-bottom: 70px;
+    padding: 4px 18px; 
+    background-color: rgb(106, 45, 143);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 490;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: rgb(86, 35, 123);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.fs-5 { font-size: 1.25rem; }
+.fs-md-4 { font-size: 1.5rem; }
+.fs-lg-5 { font-size: 1.25rem; }
+
+.fw-semibold { font-weight: 600; }
+
+.mb-4 { margin-bottom: 1.5rem; } /* Adjusted margin bottom */
+
+.text-center { text-align: center; }
+
+.text-primary {
+    color: rgb(106, 45, 143);
+}
+
+.shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rounded-4 {
+    border-radius: 0.7rem;
+}
+
+.text-secondary {
+    color: #000000;
+}
+
+.text-secondary2 {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    color: #8a8888;
+}
+
+.card-custom {
+    justify-content: center;
+    width: 180px;
+    transition: transform 0.3s ease;
+}
+
+.card-custom:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.card-body1 {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.col-lg-3 {
+    width: 23%;
+}
+
+.link-hover { 
+    font-size: 19px;
+    font-weight: large;
+    color: black;
+    text-align: left;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease;
+    line-height: 1.5rem;
+    text-decoration: none;
+}
+
+.link-hover:hover { /* Corrected selector */
+    color: black;
+    border-bottom: 2px solid black;
+    text-decoration: none;
+}
+
+.footer-section {
+    background-color: rgb(237 229 254);
+    padding: 90px 0px;
+}
+
+.footer-links {
+    display: inline-block;
+    padding: 8px 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-bottom: 2px solid transparent;
+    line-height: 1;
+}
+
+.footer-links:hover {
+    border-bottom: 2px solid black;
+    transition: none;
+}
+
+.donation-link {
+    display: inline-block;
+    padding: 8px 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-bottom: 2px solid transparent;
+    line-height: 1;
+}
+
+.donation-link:hover {
+    border-bottom: 2px solid black;
+    transition: none;
+}
+
+.instagram-icon {
+    font-size: large;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.instagram-icon:hover {
+    color: #E1306C; /* Instagram color */
+}
+
+.linkedin-icon {
+    font-size: large;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.linkedin-icon:hover {
+    color: #0077B5; /* LinkedIn color */
+}
+
+
+
+
+
+/* Carousel styles */
+.carousel-container {
+    background-color: #ede5fe;
+    width: 90%;
+    max-width: 1100px;
+    position: relative;
+    padding-bottom: 40px;
+    margin: 70px auto; /* Center horizontally with auto margins, add top margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally the content inside the container */
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: stretch;
+    width: calc(3 * (33.333% - 20px));
+}
+
+.card3 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    flex-shrink: 0;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card3:first-child {
+    margin-left: 0;
+}
+
+.card3:last-child {
+    margin-right: 0;
+}
+
+.card-image {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card.purple .card-image {
+    background-color: #9c27b0;
+}
+
+.card.heart .card-image {
+    background-color: #f44336;
+    padding: 0;
+}
+
+.card.dark .card-image {
+    background-color: #333;
+    padding: 0;
+}
+
+.card-body3 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body3 h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: black;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+}
+
+.prev-button {
+    left: 0;
+    transform: translateY(-50%) translateX(-100%);
+}
+
+.next-button {
+    right: 0;
+    transform: translateY(-50%) translateX(100%);
+}
+
+.carousel-control svg {
+    fill: black;
+    width: 16px;
+    height: 16px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.indicator {
+    background-color: #bbb;
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #555;
+    opacity: 1;
+}

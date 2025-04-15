@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Metanoia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg position-fixed w-100 bg-light"> 
+            <div class="container-fluid">
+            <a class="navbar-brand px-5" style="object-fit: cover;" href="index.html">
+                <img src="images\logo.webp" alt="Logo" height="70">
+            </a>
+            <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 px-3" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Vision.html">Our Vision</a>
+                    </li>
+                    <li class="nav-item dropdown custom-dropdown-nav">
+                        <a class="nav-link active" aria-current="page" href="Initiative.html" id="ourInitiativesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Our Initiatives</span>
+                        </a>
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                            <li><a class="dropdown-item" href="#">Metanoia School of Thoughts</a></li>
+                            <li><a class="dropdown-item" href="#">Metanoia Problem Solving</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" style="background-color: #5d2da4; border-color: purple;">Donate</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='purple' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        .navbar-toggler.collapsed .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='purple' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7l22 22M4 23L26 1'/%3e%3c/svg%3e");
+        }
+        .nav-link:hover .underline, .nav-link.active .underline{
+            width: 100%;
+        }
+        .nav-link{
+            display: inline-block;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('#navbarScroll');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navbarToggler.addEventListener('click', function() {
+                navbarToggler.classList.toggle('collapsed');
+            });
+            navLinks.forEach(link => {
+                const underline = link.querySelector('.underline');
+                const linkWidth = link.offsetWidth;
+                link.addEventListener('mouseover', () => {
+                   underline.style.width = linkWidth + 'px';
+                });
+                link.addEventListener('mouseout', () => {
+                   underline.style.width = '0px';
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    </header>
+    <div class="full-width-image-container">
+        <img src="your-full-width-image.jpg" alt="Full Width Image" class="img-fluid w-100">
+    </div>
+    <div class="full-width-image-container">
+        <img src="your-full-width-image.jpg" alt="Full Width Image" class="img-fluid w-100">
+    </div>
+    <div class="container mt-5">
+    </div>
+     <img alt="vision metanoia" src="images\img_banner-min2.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+     <div class="container"> 
+        <div class="row align-items-center g-5 g-lg-4 m-4 px-5">
+         <div class="col-12 col-lg-auto text-start mb-3 mb-lg-0">
+            <h1 class="custom-heading2 fw-bold">Innovations for a <br> Thriving Humanity</h1>
+         </div>
+         <div class="col-12 col-lg text-start ms-lg-5">
+            <p class="text-secondary2">At Vision Metanoia, we believe that thriving isn’t achieved through isolated efforts—it requires collaborative, systemic change. To catalyze this transformation, we’ve designed initiatives that align with our vision of empowering individuals and fostering collective growth. <br>
+                Our initiatives serve as stepping stones, meeting people where they are today while building a foundation for a flourishing tomorrow. </p>
+        </div>
+      </div>
+    </div>
+    <style>
+        @media (max-width: 768px) {
+           .row.align-items-center {
+              flex-direction: column;
+              text-align: left;
+              margin: 0 !important;
+              padding: 0 !important;
+           }
+    
+            
+        .custom-heading2 {
+            font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0 !important;
+              padding: 0 !important;
+        }
+           .col-12.col-lg .text-secondary2 {
+              font-size: 1.2rem;
+              margin: 0 !important;
+              padding: 0 !important;
+           }
+           .text-start {
+              text-align: left !important;
+              margin-bottom: 0 !important;
+                  padding: 0 !important;
+           }
+        }
+        </style>
+
+    <div class="main-content">
+        <div class="card mt-5 mt-4 mb-4" style="min-width: 595px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images\img_school-min.webp" class="img-fluid" alt="..." style="object-fit: cover; width: 550px; height: 600px;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">The School of Thought:</h5>
+                        <h5 class="card-title1">A Gateway to Better Thinkingl</h5>
+                        <p class="card-text">
+                            Thriving begins in the mind. The way we think shapes the way we act, solve problems, and envision the future. The School of Thought is designed to:
+                            <br>
+                            <span class="point">•</span>  Meet People Where They Are: We use language and concepts that resonate with different audiences, offering ideas in ways that are easy to grasp but transformative in nature.
+                            <br>
+                            <span class="point">•</span>  Teach Better Thinking: Through structured learning, individuals are introduced to concepts like systems thinking, first principles, and creative problem-solving.
+                            <br>
+                            <span class="point">•</span>  Foster a Cycle of Growth: Learning isn’t static. The learn-execute-teach cycle ensures that knowledge spreads organically, strengthening individuals and their communities.
+                            <br>
+                            Why It Matters: Teaching thought is scalable and impactful. It empowers individuals to take charge of their situations, unlocking new ways to approach challenges and create sustainable solutions.
+                            <br>
+                            <a href="#" class="link-hover2" style="color: black;">Learn More About the School of Thought</a>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4" style="min-width: 595px; background-color: rgb(237 229 254)">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">The Problem-Solving <br> Platform:</h5>
+                        <h5 class="card-title1">Turning Thought into Action</h5>
+                        <p class="card-text">
+                            Thinking differently is only part of the equation. Change happens when ideas are tested, refined, and implemented. The Problem-Solving Platform offers:
+                            <br>
+                            <span class="point">•</span>  A Structured Approach: Users are guided through defining problems, documenting assumptions, and brainstorming solutions.
+                            <br>
+                            <span class="point">•</span>  Collaboration and Experimentation: The platform fosters a culture of experimentation, allowing individuals to test ideas and refine them through feedback.
+                            <br>
+                            <span class="point">•</span>  A Growing Repository of Knowledge: Every solution is documented, creating a shared resource for others to learn from successes and failures alike.
+                            <br>
+                            Why It Matters: This platform not only helps solve immediate problems but builds the skills and habits needed for tackling future challenges. It’s a space where individuals practice thriving.
+                            <br>
+                            <a href="#" class="link-hover2" style="color: black;">Explore the Problem-Solving Platform</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="images\img_system-min.webp" class="img-fluid p-3" alt="..." style="  width: 550px; height: 600px;">
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4" style="max-width: 100%;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images\img_education-min.webp" class="img-fluid" alt="..." style="object-fit: cover;  width: 550px; height: 420px;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Why These Initiatives?</h5>
+                        <p class="card-text">We’ve chosen to start with these initiatives because they address a universal truth: thought is transformative. Teaching someone how to think better or solve problems effectively has an exponential impact, creating ripples of change that extend far beyond the individual. <br> 
+                            While we recognize the critical importance of addressing basic human needs like food, clothing, and shelter, these initiatives allow us to create immediate, scalable impact. As we grow, we aim to expand our efforts to tackle larger systemic issues that require more time, energy, and resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        @media (max-width: 768px) { 
+            .main-content .card {
+            flex-direction: column; 
+            min-width: 100% !important; 
+            max-width: 100% !important; 
+            margin: 50px 0 0 0 !important; 
+            padding: 0 !important; 
+            }
+        
+            .main-content .card .row {
+            flex-direction: column; 
+            margin: 0 !important;
+            padding: 0 !important; 
+            }
+        
+            .main-content .card .col-md-4,
+            .main-content .card .col-md-8 {
+            width: 100%; /* Make columns full width */
+            margin: 0 !important; /* Remove margins */
+            padding: 0 !important; 
+            }
+
+            .card .card-title {
+            padding: 0 !important; /* Remove padding */
+            font-size: 1.5rem;
+        }
+
+            .card .card-title1 {
+            padding: 0 !important; /* Remove padding */
+            font-size: 1.5rem;
+            }
+
+            .card .card-text {
+            padding: 0 !important; /* Remove padding */
+            font-size: 1.1rem;
+            }
+        
+            .main-content .card img {
+            width: 100% !important; /* Make images full width */
+            height: auto !important; /* Maintain aspect ratio */
+            max-height: 400px; /* Optional: Limit image height */
+            }
+        }
+        </style>
+
+    
+
+    <div class="mb-2 px-5">
+        <div class="position-relative text-center">
+            <div class="position-absolute top-0 start-0 translate-middle-y z-1 bg-white p-2">
+                <i class="fas fa-quote-left fa-2x"></i>
+            </div>
+            <blockquote class="border-top border-bottom border-secondary px-5 py-2 fs-3 fw-semibold" style="color: #5d2da4;">
+                What if I told you we already have all the technologies and strategies to <br>
+                 achieve this vision, but we just are not working towards it as humanity?
+            </blockquote>
+            <div class="position-absolute  end-0 z-1 bg-white p-2" style="right: -10px; bottom: -25px;">
+                <i class="fas fa-quote-right fa-2x"></i>
+            </div>
+        </div>
+    </div>
+    <style>
+        @media (max-width: 768px) {
+            .border-secondary {
+                font-size: 1.2rem;
+                text-align: left !important;
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+        }
+    </style>
+    
+    <div class="mb-5 py-5 text-center">
+        <h2 class="fs-1 fw-semibold mb-4" style="color: #5d2da4;">Join Us in Creating Change</h2>
+        <div class="mb-4">
+            <p class="fs-4 text-secondary">
+                Vision Metanoia's initiatives are more than projects—they are movements.
+            </p>
+            <p class="fs-4 text-secondary">
+                Movements to empower, inspire, and transform.
+            </p>
+            <p class="fs-4 text-secondary">
+                Together, we can create a world where thriving is universal
+            </p>
+        </div>
+        
+        <div class="row justify-content-center g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card1 card-custom shadow-lg border-0 rounded-4 h-100">
+                    <img src="images\Frame-card-4.webp" class="card-img-top rounded-top-4 card-image" alt="Explore Our Vision">
+                    <div class="card-body1">
+                        <a href="/vision" class="link-hover">Get Involved</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card1 card-custom shadow-lg border-0 rounded-4 h-100">
+                    <img src="images\Frame-card-5.webp" class="card-img-top rounded-top-4 card-image" alt="Learn More About Our Initiatives">
+                    <div class="card-body1">
+                        <a href="/initiatives" class="link-hover">Donate Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3 text-end text-lg-start mb-4 mb-lg-0">
+                    <img alt="Vision Metanoia" loading="lazy" width="143" height="70" decoding="async"
+                         src="images\logo.webp"
+                         class="img-fluid">
+                </div>
+                <style>@media (max-width: 768px) { 
+                    .col-12.col-lg-3.text-end.text-lg-start.mb-4.mb-lg-0 {
+                      text-align: left !important; /* Move image to the left */
+                    }
+                  }
+                  </style>
+                
+                <div class="col-12 col-lg-6 d-flex justify-content-around mb-4 mb-lg-0">
+                    <div class="me-lg-5">
+                        <h3 class="fw-semibold mb-4">Quick links</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="/mission" class="footer-links">Our Mission</a></li>
+                            <li><a href="/initiatives" class="footer-links">Our Initiatives</a></li>
+                            <li><a href="/schoolOfThought" class="footer-links">Metanoia School Of Thoughts</a></li>
+                            <li><a href="/schoolOfThought/NGO" class="footer-links">Support for NGO</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="fw-semibold mb-4">Get involved</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="/donation" class="donation-link">Donation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div>
+                        <h3 class="fw-semibold mb-4">Follow us:</h3>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="https://www.instagram.com/visionmetanoia/" aria-label="Instagram" class="instagram-icon">
+                                <i class="fab fa-instagram fa-xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/vision-metanoia/" aria-label="Linkedin" class="linkedin-icon">
+                                <i class="fab fa-linkedin fa-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
