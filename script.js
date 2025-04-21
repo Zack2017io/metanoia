@@ -27,154 +27,140 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-const carouselWrapper = document.querySelector('.carousel-wrapper');
-const prevButton = document.querySelector('.prev-button');
-const nextButton = document.querySelector('.next-button');
-const indicators = document.querySelectorAll('.indicator');
-let cards = Array.from(document.querySelectorAll('.card3'));
-let currentIndex = 0;
-let cardWidth;
-let autoSlideInterval;
-const autoSlideDelay = 3000;
-let isTransitioning = false;
-const visibleCards = 3;
 
-function updateCardWidth() {
-    if (cards.length > 0) {
-        cardWidth = cards[0].offsetWidth + 20;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const indicators = document.querySelectorAll('.indicator');
+    let cards = Array.from(document.querySelectorAll('.card3'));
+    let currentIndex = 0;
+    let cardWidth;
+    let autoSlideInterval;
+    const autoSlideDelay = 3000;
+    let isTransitioning = false;
+    const visibleCards = 3;
+    const margin = 20; // Fixed margin between cards
+
+    function updateCardWidth() {
+        const containerWidth = document.querySelector('.carousel-container').offsetWidth;
+        cardWidth = (containerWidth - (margin * 2)) / 3; // 3 cards + 2 margins
+        cards.forEach(card => card.style.width = `${cardWidth}px`);
+        carouselWrapper.style.width = `${(cardWidth + margin) * cards.length}px`;
+        console.log('Card width:', cardWidth, 'Container width:', containerWidth);
     }
-}
 
-function updateCarousel(animated = true) {
-    if (isTransitioning) return;
-    if (animated) {
-        carouselWrapper.style.transition = `transform 0.5s ease-in-out`;
-    } else {
-        carouselWrapper.style.transition = 'none';
-    }
-    carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    updateIndicators();
-}
-
-function updateIndicators() {
-    indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentIndex % cards.length);
-    });
-}
-
-function nextSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    currentIndex++;
-    updateCarousel();
-
-    carouselWrapper.addEventListener('transitionend', () => {
-        if (currentIndex >= cards.length) {
+    function updateCarousel(animated = true) {
+        if (animated) {
+            carouselWrapper.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        } else {
             carouselWrapper.style.transition = 'none';
-            currentIndex = 0;
-            carouselWrapper.appendChild(cards[0]);
-            cards.push(cards.shift());
-            updateCarousel(false);
         }
-        isTransitioning = false;
-    }, { once: true });
 
-    resetAutoSlide();
-}
-
-function prevSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    currentIndex--;
-    updateCarousel();
-
-    carouselWrapper.addEventListener('transitionend', () => {
-        if (currentIndex < 0) {
-            carouselWrapper.style.transition = 'none';
-            currentIndex = cards.length - 1;
-            carouselWrapper.insertBefore(cards[cards.length - 1], cards[0]);
-            cards.unshift(cards.pop());
-            updateCarousel(false);
-            carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        }
-        isTransitioning = false;
-    }, { once: true });
-
-    resetAutoSlide();
-}
-
-function goToSlide(index) {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    const targetIndex = index % cards.length;
-    const difference = targetIndex - (currentIndex % cards.length);
-
-    if (difference > 0) {
-        currentIndex += difference;
-    } else if (difference < 0) {
-        currentIndex += difference;
+        // Update the transform position
+        const transformValue = -currentIndex * (cardWidth + margin);
+        carouselWrapper.style.transform = `translateX(${transformValue}px)`;
+        updateIndicators();
     }
-    updateCarousel();
 
-    carouselWrapper.addEventListener('transitionend', () => {
-        const newTargetIndex = index % cards.length;
-        const currentActualIndex = cards.findIndex(card => card === carouselWrapper.children[0]);
-        const diff = newTargetIndex - currentActualIndex;
+    function updateIndicators() {
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex % cards.length);
+        });
+    }
 
-        if (diff > 0) {
-            for (let i = 0; i < diff; i++) {
-                const firstCard = carouselWrapper.removeChild(cards[0]);
-                carouselWrapper.appendChild(firstCard);
-                cards.push(cards.shift());
-            }
-        } else if (diff < 0) {
-            for (let i = 0; i < Math.abs(diff); i++) {
-                const lastCard = carouselWrapper.removeChild(cards[cards.length - 1]);
-                carouselWrapper.insertBefore(lastCard, carouselWrapper.firstChild);
-                cards.unshift(cards.pop());
-                currentIndex++;
-            }
+    function nextSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const nextIndex = (currentIndex + 1) % cards.length;
+        updateCarousel(true);
+
+        carouselWrapper.addEventListener('transitionend', () => {
+            currentIndex = nextIndex;
+            isTransitioning = false;
+        }, { once: true });
+
+        resetAutoSlide();
+    }
+
+    function prevSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel(true);
+
+        carouselWrapper.addEventListener('transitionend', () => {
+            currentIndex = prevIndex;
+            isTransitioning = false;
+        }, { once: true });
+
+        resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const targetIndex = index % cards.length;
+
+        if (currentIndex === targetIndex) {
+            isTransitioning = false;
+            return;
         }
+
+        currentIndex = targetIndex;
+        updateCarousel(true);
+
+        carouselWrapper.addEventListener('transitionend', () => {
+            isTransitioning = false;
+        }, { once: true });
+
+        resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            if (!isTransitioning) {
+                nextSlide();
+            }
+        }, autoSlideDelay);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    function initializeCarousel() {
+        updateCardWidth();
         updateCarousel(false);
-        isTransitioning = false;
-    }, { once: true });
-    resetAutoSlide();
-}
+        console.log('Carousel initialized');
+    }
 
-function goToIndicatorSlide(event) {
-    const index = parseInt(event.target.dataset.index);
-    goToSlide(index);
-}
+    if (prevButton) { // Check if the element exists before adding listener
+        prevButton.addEventListener('click', prevSlide);
+    }
+    if (nextButton) { // Check if the element exists before adding listener
+        nextButton.addEventListener('click', nextSlide);
+    }
+    indicators.forEach(indicator => {
+        if (indicator) { // Check if the element exists before adding listener
+            indicator.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.index);
+                goToSlide(index);
+            });
+        }
+    });
 
-function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
-}
+    window.addEventListener('resize', () => {
+        updateCardWidth();
+        updateCarousel(false);
+        resetAutoSlide();
+    });
 
-function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
+    initializeCarousel();
     startAutoSlide();
-}
-
-function initializeCarousel() {
-    updateCardWidth();
-    carouselWrapper.style.width = `${cards.length * cardWidth}px`;
-    updateCarousel(false);
-}
-
-prevButton.addEventListener('click', prevSlide);
-nextButton.addEventListener('click', nextSlide);
-indicators.forEach(indicator => {
-    indicator.addEventListener('click', goToIndicatorSlide);
 });
-
-window.addEventListener('resize', () => {
-    updateCardWidth();
-    carouselWrapper.style.width = `${cards.length * cardWidth}px`;
-    updateCarousel(false);
-    resetAutoSlide();
-});
-
-// Initial setup
-initializeCarousel();
-startAutoSlide();
-  
