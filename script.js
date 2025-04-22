@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCardWidth() {
         const containerWidth = document.querySelector('.carousel-container').offsetWidth;
-        cardWidth = (containerWidth - (margin * 2)) / 3; // 3 cards + 2 margins
+        cardWidth = (containerWidth - (margin * (visibleCards - 1))) / visibleCards; // use visibleCards
         cards.forEach(card => card.style.width = `${cardWidth}px`);
-        carouselWrapper.style.width = `${(cardWidth + margin) * cards.length}px`;
+        carouselWrapper.style.width = `${(cardWidth + margin) * cards.length - margin}px`;
         console.log('Card width:', cardWidth, 'Container width:', containerWidth);
     }
 
@@ -74,11 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isTransitioning) return;
         isTransitioning = true;
 
-        const nextIndex = (currentIndex + 1) % cards.length;
+        currentIndex = (currentIndex + 1) % cards.length;
         updateCarousel(true);
 
         carouselWrapper.addEventListener('transitionend', () => {
-            currentIndex = nextIndex;
             isTransitioning = false;
         }, { once: true });
 
@@ -89,11 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isTransitioning) return;
         isTransitioning = true;
 
-        const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
         updateCarousel(true);
 
         carouselWrapper.addEventListener('transitionend', () => {
-            currentIndex = prevIndex;
             isTransitioning = false;
         }, { once: true });
 
