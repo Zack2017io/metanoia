@@ -326,7 +326,7 @@
 
 .carousel-container {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f8f0fb;
+    background-color: #ede5fe;
     margin: 0 auto; /* Center horizontally, remove side margin */
     display: flex;
     justify-content: center;
@@ -342,7 +342,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 980px; /* Slightly increased carousel width */
+    max-width: 1200px; /* Slightly increased carousel width */
     position: relative;
     padding: 48px 0; /* Slightly increased padding */
     margin: 0 auto; /* Center the carousel */
@@ -366,21 +366,22 @@
     background-color: #fff;
     border-radius: 28px;
     box-shadow: 0 4px 28px rgba(93, 45, 164, 0.12);
-    width: 260px;      /* Increased width */
-    min-width: 220px;  /* Increased min-width */
-    max-width: 280px;  /* Increased max-width */
+    width: 350px !important;      
+    min-width: 240px;  
+    /* max-width: 530px;  */
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    min-height: 390px; /* Increased height */
+    min-height: 400px; /* Increased height */
     position: relative;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    object-position: center;
 }
 
 .card3 .card-image {
-    height: 150px; /* Increased image height */
+    height: 280px; 
     overflow: hidden;
     border-radius: 28px 28px 0 0;
     background: #fff;
@@ -393,7 +394,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 28px 28px 0 0;
+    border-radius: 15px 15px 0 0;
 }
 
 .card-body3 {
@@ -402,12 +403,12 @@
     flex-direction: column;
     gap: 12px;
     background: #fff;
-    border-radius: 0 0 28px 28px;
+    border-radius: 0 0 15px 15px;
     flex: 1 1 auto;
 }
 
 .card-body3 h3 {
-    font-size: 1.22rem; /* Increased font size */
+    font-size: 1.125rem; 
     margin: 0 0 8px 0;
     font-weight: 600;
     color: #222;
@@ -418,7 +419,7 @@
     margin: 0;
     color: #666;
     line-height: 1.5;
-    font-size: 1.08rem; /* Increased font size */
+    font-size: 0.875rem; 
 }
 
 .carousel-control {
@@ -428,19 +429,19 @@
     background-color: #fff;
     border-radius: 50%;
     border: none;
-    width: 48px;   /* Slightly larger controls */
-    height: 48px;
+    width: 50px;   
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
-    color: #5d2da4;
+    font-size: 1.5em;
+    color: #000000;
     cursor: pointer;
     z-index: 10;
     opacity: 0.85;
     transition: opacity 0.3s ease, box-shadow 0.2s;
     box-shadow: 0 2px 10px rgba(93, 45, 164, 0.12);
-    /* Remove default left/right for both, will set below */
+    padding: 0; /* Remove padding */
 }
 
 .carousel-control:hover {
@@ -457,9 +458,9 @@
 }
 
 .carousel-control svg {
-    fill: #5d2da4;
-    width: 24px;
-    height: 24px;
+    fill: #000000;
+    width: 40px;
+    height: 40px;
 }
 
 .carousel-indicators {
@@ -477,15 +478,15 @@
     background-color: #bbb;
     border: none;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 3px;
+    height: 3px;
     cursor: pointer;
     opacity: 0.6;
     transition: all 0.3s ease;
 }
 
 .indicator.active {
-    background-color: #5d2da4;
+    background-color: #010101;
     opacity: 1;
     transform: scale(1.25);
 }
@@ -524,7 +525,7 @@
         max-width: calc(100vw - 32px);
         width: calc(100vw - 32px);
         scroll-snap-align: center;
-        margin: 0 16px; /* margin left and right */
+        margin: 0 14px; /* margin left and right */
         border-radius: 20px;
         box-shadow: 0 4px 24px rgba(93, 45, 164, 0.10);
     }
